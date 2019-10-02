@@ -1,0 +1,13 @@
+%{
+int tokencount = 0;
+%}
+
+%%
+[ ]+ {printf("White spaces ignored\n");}
+(\-)^[1]+[0-4]+\.[0-9]*{printf("%s - Found a folat in the range of -10 to -15 number.\n",yytext);}
+%%
+int main()
+{
+yylex();
+printf("Number of tokens is : %d\n",tokencount);
+}
